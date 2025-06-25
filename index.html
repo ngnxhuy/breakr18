@@ -1,183 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Breakr18 - iOS 18 Jailbreak</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkra1n - iOS Jailbreak</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            background-color: #f9f9f9;
+            padding: 0;
             color: #333;
-            text-align: center;
-            padding: 2em;
         }
-        h1 {
-            color: #1a1a1a;
-        }
-        .device-info {
-            margin: 1em 0;
-            font-size: 1.1em;
-            color: green;
-        }
-        .button {
-            display: inline-block;
-            margin: 1em;
-            padding: 1em 2em;
-            font-size: 1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #007aff;
-            color: white;
-            transition: background 0.3s ease;
-        }
-        .button:hover {
-            background-color: #005fcc;
-        }
-        .terminal {
+        .header {
             background-color: #000;
-            color: #00ff00;
-            text-align: left;
-            padding: 1em;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
             border-radius: 5px;
-            margin: 2em auto;
-            width: 90%;
-            max-width: 600px;
-            height: 300px;
-            overflow-y: auto;
-            font-family: monospace;
-            font-size: 0.9em;
-            display: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            margin-top: 3em;
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #cc0000;
+        }
+        .warning {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
             font-size: 0.8em;
-            color: #888;
-        }
-        /* Respring overlay */
-        #respringOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: black;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            flex-direction: column;
-        }
-        /* Spinner */
-        .spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1.5s linear infinite;
-            margin-bottom: 1em;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>Breakr18</h1>
-    <p class="device-info" id="deviceInfo">Detecting device...</p>
-    <button class="button" id="runExploitBtn" onclick="runExploit()">Run Exploit</button>
-
-    <div class="terminal" id="terminal">
-        <div id="log"></div>
+    <div class="header">
+        <div class="logo">checkra1n</div>
+        <p>Advanced iOS Jailbreaking Tool</p>
     </div>
+    <div class="container">
+        <h2>Download checkra1n 0.1337.0 (Beta)</h2>
+        <p>The most advanced jailbreak for iOS 15 - iOS 17.4.1</p>
+        
+        <div class="warning">
+            <strong>Warning:</strong> Jailbreaking may void your warranty. Use at your own risk.
+        </div>
 
-    <!-- Respring button, hidden initially -->
-    <button class="button" id="respringBtn" style="display:none;" onclick="respring()">Respring Device</button>
+        <a href="#" class="download-btn" onclick="fakeDownload()">Download for macOS</a>
+        <a href="#" class="download-btn" onclick="fakeDownload()">Download for Linux</a>
+        <a href="#" class="download-btn" onclick="fakeDownload()">Download for Windows</a>
 
-    <!-- Respring overlay -->
-    <div id="respringOverlay">
-        <div class="spinner"></div>
-        <div style="color: white; font-size: 1.2em;">Respringing device...</div>
+        <h3>How to Jailbreak:</h3>
+        <ol>
+            <li>Download checkra1n above.</li>
+            <li>Run the tool and connect your iPhone.</li>
+            <li>Follow the on-screen instructions.</li>
+            <li>Enjoy jailbreak!</li>
+        </ol>
+
+        <p><strong>Note:</strong> This is a beta release. Some features may not work.</p>
     </div>
-
-    <footer>For educational purposes only. © 2025 Breakr18</footer>
+    <div class="footer">
+        <p>© 2024 checkra1n Team (Not really, this is a prank!)</p>
+    </div>
 
     <script>
-        const logLines = [
-            "[*] Initializing jailbreak environment...",
-            "[*] Checking device compatibility...",
-            "[+] Device supported!",
-            "[*] Exploiting kernel...",
-            "[*] Patching AMFI...",
-            "[*] Installing persistence agent...",
-            "[+] Exploit successful.",
-            "[*] Finalizing installation...",
-            "[+] Jailbreak complete! Open Breakr18 from the Home Screen."
-        ];
-
-        function runExploit() {
-            const terminal = document.getElementById("terminal");
-            const log = document.getElementById("log");
-            const runBtn = document.getElementById("runExploitBtn");
-            const respringBtn = document.getElementById("respringBtn");
-
-            runBtn.disabled = true;
-            runBtn.style.opacity = "0.6";
-            terminal.style.display = "block";
-            log.innerHTML = "";
-            respringBtn.style.display = "none";
-
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < logLines.length) {
-                    log.innerHTML += logLines[i] + "<br>";
-                    terminal.scrollTop = terminal.scrollHeight;
-                    i++;
-                } else {
-                    clearInterval(interval);
-                    // Show the respring button when done
-                    respringBtn.style.display = "inline-block";
-                }
-            }, 1000);
+        function fakeDownload() {
+            alert("⚠️ Error: This is a prank! Your friend trolled you. 😂");
+            return false;
         }
-
-        function respring() {
-            const overlay = document.getElementById("respringOverlay");
-            overlay.style.display = "flex";
-
-            setTimeout(() => {
-                // Reload page after 3 seconds to simulate respring
-                location.reload();
-            }, 3000);
-        }
-
-        // Fake dynamic detection
-        function detectDevice() {
-            const ua = navigator.userAgent;
-            let os = "Unknown OS";
-            let browser = "Unknown Browser";
-
-            if (/iPhone/.test(ua)) os = "iOS";
-            if (/iPad/.test(ua)) os = "iPadOS";
-            if (/Android/.test(ua)) os = "Android";
-            if (/Mac/.test(ua)) os = "macOS";
-            if (/Windows/.test(ua)) os = "Windows";
-
-            if (/Safari/.test(ua) && !/Chrome/.test(ua)) browser = "Safari";
-            if (/Chrome/.test(ua)) browser = "Chrome";
-            if (/Firefox/.test(ua)) browser = "Firefox";
-            if (/Edg/.test(ua)) browser = "Edge";
-
-            document.getElementById("deviceInfo").textContent =
-                `Detected: ${browser} • ${os} • Compatible ✅`;
-        }
-
-        detectDevice();
     </script>
 </body>
 </html>
