@@ -61,7 +61,7 @@
 </head>
 <body>
     <h1>Breakr18</h1>
-    <p class="device-info">Detected: iPhone 14 Pro • iOS 18.1 • Compatible ✅</p>
+    <p class="device-info" id="deviceInfo">Detecting device...</p>
     <button class="button" onclick="runExploit()">Run Exploit</button>
     <div class="terminal" id="terminal">
         <div id="log"></div>
@@ -97,6 +97,29 @@
                 }
             }, 1000);
         }
+
+        // Fake dynamic detection
+        function detectDevice() {
+            const ua = navigator.userAgent;
+            let os = "Unknown OS";
+            let browser = "Unknown Browser";
+
+            if (/iPhone/.test(ua)) os = "iOS";
+            if (/iPad/.test(ua)) os = "iPadOS";
+            if (/Android/.test(ua)) os = "Android";
+            if (/Mac/.test(ua)) os = "macOS";
+            if (/Windows/.test(ua)) os = "Windows";
+
+            if (/Safari/.test(ua) && !/Chrome/.test(ua)) browser = "Safari";
+            if (/Chrome/.test(ua)) browser = "Chrome";
+            if (/Firefox/.test(ua)) browser = "Firefox";
+            if (/Edg/.test(ua)) browser = "Edge";
+
+            document.getElementById("deviceInfo").textContent =
+                `Detected: ${browser} • ${os} • Compatible ✅`;
+        }
+
+        detectDevice();
     </script>
 </body>
 </html>
