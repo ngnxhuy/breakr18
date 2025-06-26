@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Silque – Premium IPA Signing for iOS</title>
+  <title>Silque – Modern IPA Signing for iOS</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
   <style>
     :root {
       --primary: #9c47fc;
       --secondary: #4a90e2;
       --accent: #ff92e2;
-      --bg1: #1b1933;
+      --bg1: #18162b;
       --white: #f6f6fa;
     }
     html, body {
@@ -23,23 +23,14 @@
       overflow-x: hidden;
     }
 
-    /* Responsive animated mesh gradient */
-    .gradient-bg {
+    /* SVG mesh gradient background */
+    .mesh-bg {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: -1;
       pointer-events: none;
-      background: radial-gradient(ellipse at 30% 40%, #9c47fc99 0%, transparent 70%),
-                  radial-gradient(ellipse at 70% 60%, #4a90e2bb 0%, transparent 70%),
-                  radial-gradient(ellipse at 60% 10%, #ff92e277 0%, transparent 70%);
-      animation: meshmove 16s ease-in-out infinite alternate;
-      background-size: 200% 200%;
-      transition: background-position 0.2s;
-    }
-    @keyframes meshmove {
-      0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-      50% { background-position: 80% 20%, 20% 80%, 60% 30%; }
-      100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+      transition: opacity 0.3s;
+      opacity: 1;
     }
 
     /* Navbar */
@@ -48,13 +39,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 1.2rem 1.2rem 1.2rem;
-      background: rgba(27,25,51,0.92);
+      padding: 1.2rem 1.2rem;
+      background: rgba(24,22,43,0.90);
       position: fixed;
       top: 0; left: 0;
       z-index: 10;
-      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
-      backdrop-filter: blur(18px);
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+      backdrop-filter: blur(16px);
     }
     nav .logo {
       font-weight: 900;
@@ -66,7 +57,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       margin: 0;
       padding: 0;
     }
@@ -81,29 +72,8 @@
     }
     nav ul li a:hover,
     nav ul li a:focus {
-      background: rgba(156,71,252,0.15);
+      background: rgba(156,71,252,0.13);
       color: var(--primary);
-    }
-    .cta-btn {
-      display: none;
-      position: fixed;
-      right: 1.2rem;
-      bottom: 1.2rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 1rem 2rem;
-      border-radius: 32px;
-      box-shadow: 0 8px 32px #9c47fc44;
-      text-decoration: none;
-      z-index: 100;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .cta-btn:active { transform: scale(0.97); }
-    @media (max-width: 700px) {
-      .cta-btn { display: block; }
-      nav ul { display: none; }
     }
 
     /* Hero */
@@ -113,31 +83,29 @@
       align-items: flex-start;
       justify-content: center;
       min-height: 75vh;
-      padding: 6.5rem 1.2rem 2.5rem 1.2rem;
-      max-width: 600px;
+      padding: 7rem 1.2rem 2.5rem 1.2rem;
+      max-width: 700px;
       margin: 0 auto;
       width: 100%;
-      animation: fadeInUp 1.2s cubic-bezier(.22,.61,.36,1) 0.2s both;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to   { opacity: 1; transform: none;}
+      position: relative;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
       font-weight: 900;
       color: #fff;
       margin-bottom: 1.1rem;
       letter-spacing: 0.01em;
       line-height: 1.08;
       text-shadow: 0 4px 40px #9c47fc33;
+      animation: fadeInLeft 1s both 0.1s;
     }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.13rem;
       color: #e6e6f7;
       font-weight: 400;
       margin-bottom: 2rem;
       line-height: 1.6;
+      animation: fadeInLeft 1s both 0.25s;
     }
     .btn-primary {
       display: inline-block;
@@ -151,11 +119,16 @@
       box-shadow: 0 6px 28px #4a90e255;
       transition: box-shadow 0.2s, transform 0.2s;
       user-select: none;
+      animation: fadeInLeft 1s both 0.4s;
     }
     .btn-primary:hover,
     .btn-primary:focus {
       box-shadow: 0 12px 40px #9c47fcbb;
       transform: translateY(-2px) scale(1.04);
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px);}
+      to   { opacity: 1; transform: none;}
     }
 
     /* Main Content */
@@ -196,12 +169,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.2rem;
+      margin-top: 0.5rem;
     }
     @media (max-width: 600px) {
       .features { grid-template-columns: 1fr; }
     }
     .feature-card {
-      background: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.13);
       border-radius: 15px;
       padding: 1.2rem 1rem 1.1rem 1rem;
       box-shadow: 0 4px 24px 0 rgba(76, 56, 120, 0.13);
@@ -282,7 +256,26 @@
   </style>
 </head>
 <body>
-  <div class="gradient-bg" id="gradient-bg"></div>
+  <!-- SVG animated mesh background -->
+  <svg class="mesh-bg" id="mesh-bg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id="g1" cx="30%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#9c47fc" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#9c47fc" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g2" cx="70%" cy="60%" r="60%">
+        <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#4a90e2" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g3" cx="60%" cy="10%" r="60%">
+        <stop offset="0%" stop-color="#ff92e2" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#ff92e2" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#g1)"/>
+    <rect width="1440" height="900" fill="url(#g2)"/>
+    <rect width="1440" height="900" fill="url(#g3)"/>
+  </svg>
 
   <nav id="navbar">
     <div class="logo">SILQUE</div>
@@ -294,13 +287,12 @@
       <li><a href="https://github.com/AntonyMarcelino/Silque" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </nav>
-  <a href="https://github.com/AntonyMarcelino/Silque" class="cta-btn" target="_blank" rel="noopener">Get Silque</a>
 
   <section class="hero">
     <h1>Silque</h1>
     <p>
-      Premium iOS IPA signing and management.<br>
-      Sign, install, and manage your apps with unmatched security, customization, and performance.
+      Modern iOS IPA signing and management.<br>
+      Sign, install, and manage your apps with advanced security and a beautiful UI.
     </p>
     <a href="https://github.com/AntonyMarcelino/Silque" target="_blank" rel="noopener" class="btn-primary">Get Silque on GitHub</a>
   </section>
@@ -391,4 +383,28 @@
   </footer>
 
   <script>
-    // Navbar background
+    // Animate SVG mesh gradients with scroll
+    const mesh = document.getElementById('mesh-bg');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      mesh.children[0].setAttribute('x', scrollY * 0.1);
+      mesh.children[1].setAttribute('x', -scrollY * 0.08);
+      mesh.children[2].setAttribute('x', scrollY * 0.06);
+    });
+
+    // Animate sections on scroll (fade and slide up)
+    const sections = document.querySelectorAll('main section');
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.13 };
+    function revealSection(entries, observer) {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+    const observer = new IntersectionObserver(revealSection, observerOptions);
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
