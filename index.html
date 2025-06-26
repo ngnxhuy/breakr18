@@ -1,102 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>checkra1n - iOS Jailbreak</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .download-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #ff0000;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #cc0000;
-        }
-        .warning {
-            background-color: #fff3cd;
-            padding: 15px;
-            border-left: 5px solid #ffc107;
-            margin: 20px 0;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8em;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silque – Premium IPA Signing for iOS</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap">
+  <style>
+    :root {
+      --primary: #9c47fc;
+      --secondary: #4a90e2;
+      --accent: #ff92e2;
+      --bg1: #1b1933;
+      --bg2: #23204a;
+      --white: #f6f6fa;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg1);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Animated mesh gradient background */
+    .gradient-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 30% 40%, #9c47fc88 0%, transparent 70%),
+                  radial-gradient(ellipse at 70% 60%, #4a90e2bb 0%, transparent 70%),
+                  radial-gradient(ellipse at 60% 10%, #ff92e277 0%, transparent 70%);
+      animation: meshmove 16s ease-in-out infinite alternate;
+      background-size: 200% 200%;
+    }
+    @keyframes meshmove {
+      0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+      50% { background-position: 80% 20%, 20% 80%, 60% 30%; }
+      100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 4vw 1.2rem 4vw;
+      background: transparent;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 10;
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(27,25,51,0.92);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+      backdrop-filter: blur(18px);
+    }
+    nav .logo {
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+    nav ul li a {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: rgba(156,71,252,0.12);
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 88vh;
+      padding: 9rem 4vw 4rem 4vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+      animation: fadeInLeft 1.2s cubic-bezier(.22,.61,.36,1) 0.2s both;
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px);}
+      to   { opacity: 1; transform: none;}
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
+      line-height: 1.08;
+      text-shadow: 0 4px 40px #9c47fc33;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #e6e6f7;
+      font-weight: 400;
+      margin-bottom: 2.3rem;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 1.1rem 2.5rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+      border-radius: 36px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 6px 28px #4a90e255;
+      transition: box-shadow 0.2s, transform 0.2s;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      box-shadow: 0 12px 40px #9c47fcbb;
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4vw 4rem 4vw;
+    }
+    section {
+      margin-bottom: 5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.22,.61,.36,1), transform 0.7s cubic-bezier(.22,.61,.36,1);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      font-weight: 800;
+      font-size: 2.1rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
+    }
+    p, ul {
+      font-weight: 400;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: #e0e0f5;
+      margin-bottom: 1.3rem;
+    }
+    ul { padding-left: 1.4rem; }
+    ul li { margin-bottom: 0.6rem; }
+
+    /* Features grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 2.2rem 1.5rem 1.6rem 1.5rem;
+      box-shadow: 0 4px 32px 0 rgba(76, 56, 120, 0.13);
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+      user-select: none;
+      border: 1.5px solid rgba(156,71,252,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 220px;
+      position: relative;
+    }
+    .feature-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      opacity: 0.85;
+      filter: drop-shadow(0 2px 8px #4a90e255);
+    }
+    .feature-card h3 {
+      font-weight: 700;
+      font-size: 1.13rem;
+      margin-bottom: 0.7rem;
+      color: #d1b3ff;
+    }
+    .feature-card ul {
+      color: #c7c7e7;
+      font-size: 1rem;
+      font-weight: 400;
+      padding-left: 1.1rem;
+      margin-bottom: 0;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 12px 32px #9c47fc33;
+      border-color: var(--primary);
+    }
+
+    /* Tech tags */
+    .tech-tags {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .tech-tag {
+      background: linear-gradient(135deg, #9c47fcdd, #4a90e2dd);
+      color: white;
+      padding: 0.5rem 1.3rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 0 15px #9c47fc33;
+      user-select: none;
+      transition: transform 0.3s;
+    }
+    .tech-tag:hover {
+      transform: scale(1.07);
+      cursor: default;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem 1rem;
+      color: #666;
+      font-weight: 400;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; align-items: flex-start; padding-top: 6.5rem; }
+      .hero-content { max-width: 100%; }
+      main { padding: 0 2vw 4rem 2vw; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.1rem; }
+      .logo { font-size: 1.3rem; }
+      .hero { padding: 5rem 1rem 2rem 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      main { padding: 0 0.7rem 3rem 0.7rem; }
+      h2 { font-size: 1.3rem; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">checkra1n</div>
-        <p>Advanced iOS Jailbreaking Tool</p>
+  <div class="gradient-bg" id="gradient-bg"></div>
+
+  <nav id="navbar">
+    <div class="logo">SILQUE</div>
+    <ul>
+      <li><a href="#description">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#technologies">Technologies</a></li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="https://github.com/AntonyMarcelino/Silque" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Silque</h1>
+      <p>
+        The premium iOS IPA signing and management solution. <br>
+        Sign, install, and manage your apps with unmatched security, customization, and performance.
+      </p>
+      <a href="https://github.com/AntonyMarcelino/Silque" target="_blank" rel="noopener" class="btn-primary" aria-label="View Silque project on GitHub">Get Silque on GitHub</a>
     </div>
-    <div class="container">
-        <h2>Download checkra1n 0.1337.0 (Beta)</h2>
-        <p>The most advanced jailbreak for iOS 15 - iOS 17.4.1</p>
-        
-        <div class="warning">
-            <strong>Warning:</strong> Jailbreaking may void your warranty. Use at your own risk.
+  </section>
+
+  <main>
+    <section id="description" tabindex="0" aria-labelledby="desc-title">
+      <h2 id="desc-title">What is Silque?</h2>
+      <p>
+        Silque is a modern, native iOS application built with SwiftUI. Effortlessly sign IPA applications with your own certificates, manage installed apps, personalize your experience with themes and animations, and secure everything with Touch ID or Face ID.
+      </p>
+    </section>
+
+    <section id="features" tabindex="0" aria-labelledby="features-title">
+      <h2 id="features-title">Key Features</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="icon">🔏</div>
+          <h3>IPA Signing</h3>
+          <ul>
+            <li>Import & sign IPA files</li>
+            <li>Certificate management</li>
+            <li>OTA (Over-The-Air) install</li>
+            <li>Export signed apps</li>
+          </ul>
         </div>
+        <div class="feature-card">
+          <div class="icon">📱</div>
+          <h3>App Management</h3>
+          <ul>
+            <li>App overview & stats</li>
+            <li>Quick reinstall via OTA</li>
+            <li>Easy app organization</li>
+            <li>Safe deletion</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎨</div>
+          <h3>Modern Interface</h3>
+          <ul>
+            <li>Glassmorphism design</li>
+            <li>Animated mesh gradients</li>
+            <li>Adaptive themes</li>
+            <li>Multilingual UI</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔒</div>
+          <h3>Advanced Security</h3>
+          <ul>
+            <li>Biometric authentication</li>
+            <li>Configurable auto-lock</li>
+            <li>Secure storage</li>
+            <li>Optimized performance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <a href="#" class="download-btn" onclick="fakeDownload()">Download for macOS</a>
-        <a href="#" class="download-btn" onclick="fakeDownload()">Download for Linux</a>
-        <a href="#" class="download-btn" onclick="fakeDownload()">Download for Windows</a>
+    <section id="technologies" tabindex="0" aria-labelledby="tech-title">
+      <h2 id="tech-title">Technologies</h2>
+      <div class="tech-tags">
+        <span class="tech-tag">Swift 5.0+</span>
+        <span class="tech-tag">SwiftUI</span>
+        <span class="tech-tag">iOS 18.0+</span>
+        <span class="tech-tag">Xcode 16.0+</span>
+        <span class="tech-tag">MVVM</span>
+        <span class="tech-tag">UserDefaults</span>
+        <span class="tech-tag">FileManager</span>
+        <span class="tech-tag">LocalAuthentication</span>
+        <span class="tech-tag">Core Animation</span>
+        <span class="tech-tag">Metal</span>
+      </div>
+    </section>
 
-        <h3>How to Jailbreak:</h3>
-        <ol>
-            <li>Download checkra1n above.</li>
-            <li>Run the tool and connect your iPhone.</li>
-            <li>Follow the on-screen instructions.</li>
-            <li>Enjoy jailbreak!</li>
-        </ol>
+    <section id="installation" tabindex="0" aria-labelledby="install-title">
+      <h2 id="install-title">Installation</h2>
+      <p>
+        <strong>Requirements:</strong> Xcode 16.0+, iOS 18.0+, Apple Developer Certificate, iOS Device/Simulator.
+      </p>
+      <p>
+        Download the latest Silque.ipa, sign it with your certificate, add developer certificates in-app, set your Bundle ID, enable automatic signing in Xcode, then build & run on your device.
+      </p>
+    </section>
+  </main>
 
-        <p><strong>Note:</strong> This is a beta release. Some features may not work.</p>
-    </div>
-    <div class="footer">
-        <p>© 2024 checkra1n Team (Not really, this is a prank!)</p>
-    </div>
+  <footer>
+    &copy; 2025 Antony Marcelino. All rights reserved.
+  </footer>
 
-    <script>
-        function fakeDownload() {
-            alert("⚠️ Error: This is a prank! Your friend trolled you. 😂");
-            return false;
+  <script>
+    // Navbar background toggle on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Animate sections on scroll (fade and slide up)
+    const sections = document.querySelectorAll('main section');
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.13 };
+    function revealSection(entries, observer) {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
-    </script>
+      });
+    }
+    const observer = new IntersectionObserver(revealSection, observerOptions);
+    sections.forEach(section => observer.observe(section));
+
+    // Mesh gradient background moves with scroll
+    const gradientBg = document.getElementById('gradient-bg');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      gradientBg.style.backgroundPosition =
+        `${50 + scrollY * 0.05}% ${50 + scrollY * 0.02}%, ` +
+        `${100 - scrollY * 0.03}% ${100 - scrollY * 0.04}%, ` +
+        `${60 + scrollY * 0.02}% ${30 + scrollY * 0.01}%`;
+    });
+  </script>
 </body>
 </html>
